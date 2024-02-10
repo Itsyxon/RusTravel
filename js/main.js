@@ -6,7 +6,7 @@ menuBtn.addEventListener('click', () => {
 })
 
 const anchors = [].slice.call(document.querySelectorAll('a[href*="#"]')),
-  animationTime = 500,
+  animationTime = 300,
   framesCount = 20
 anchors.forEach(function (item) {
   item.addEventListener('click', function (e) {

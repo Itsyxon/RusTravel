@@ -55,18 +55,14 @@ document.querySelector('.modal').addEventListener('click', (e) => {
   e.currentTarget.classList.remove('open')
 })
 
-goTopBtn.addEventListener('click', goTop)
-function goTop() {
-  if (window.pageYOffset > 0) {
-    window.scrollBy(0, -75)
-    setTimeout(goTop, 0)
-  }
-}
-
+// ссылка вверх
 window.addEventListener('scroll', () => {
-  const offset = window.pageYOffset
-  const coords = document.documentElement.clientHeight
-  offset > coords
+  let scrolled = window.scrollY
+  scrolled >= 1000
     ? goTopBtn.classList.add('gototop-show')
     : goTopBtn.classList.remove('gototop-show')
+})
+
+goTopBtn.addEventListener('click', () => {
+  window.scrollTo(0, 0)
 })

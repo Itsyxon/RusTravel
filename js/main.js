@@ -1,5 +1,6 @@
 const menuBtn = document.querySelector('.menu-btn')
 const menu = document.querySelector('.menu')
+const goTopBtn = document.querySelector('.gototop')
 
 menuBtn.addEventListener('click', () => {
   menu.classList.toggle('menu-active')
@@ -52,4 +53,20 @@ document
 document.querySelector('.modal').addEventListener('click', (e) => {
   if (e._isClickWithInModal) return
   e.currentTarget.classList.remove('open')
+})
+
+goTopBtn.addEventListener('click', goTop)
+function goTop() {
+  if (window.pageYOffset > 0) {
+    window.scrollBy(0, -75)
+    setTimeout(goTop, 0)
+  }
+}
+
+window.addEventListener('scroll', () => {
+  const offset = window.pageYOffset
+  const coords = document.documentElement.clientHeight
+  offset > coords
+    ? goTopBtn.classList.add('gototop-show')
+    : goTopBtn.classList.remove('gototop-show')
 })
